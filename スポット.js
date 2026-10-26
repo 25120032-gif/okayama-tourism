@@ -38,9 +38,9 @@ const spots = [
     },
 
     {
-        id: 2,
-        name: "岡山城",
-        area: "岡山市",
+    id: 2,
+    name: "岡山城",
+    area: "岡山市",
         purpose: "観光",
         budget: 500,
         time: 60,
@@ -50,9 +50,9 @@ const spots = [
         category: "定番",
         address: "岡山市北区丸の内",
         access: "路面電車やバスなどを利用してアクセス可能",
-        hours: "開館時間は公式情報を確認",
+        hours: "開館時間は公式情報を確認",          
         mapQuery: "岡山城",
-        image: "images/okayama-castle.jpg",
+        image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=80",
         note:
             "イベントや休館日、入館料などを事前に確認する。"
     },
