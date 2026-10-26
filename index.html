@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>おかやま旅ナビ｜岡山の新しい魅力を見つけよう</title>
+
+    <meta name="description" content="岡山県の観光スポットを地域・予算・時間・目的から検索。まだ知らない岡山の魅力を見つけて、自分だけの観光プランを作ろう。">
+
+    <meta name="theme-color" content="#205b43">
+
+    <!-- サイトのデザインを読み込む -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- スポット情報を先に読み込んでから画面の処理を実行する -->
+    <script src="js/spots.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ページ上部のメニュー -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a href="#" class="logo" aria-label="おかやま旅ナビのトップ">
+                <span class="logo-icon">岡</span>
+
+                <span class="logo-text">
+                    <strong>おかやま旅ナビ</strong>
+                    <small>OKAYAMA TRAVEL NAVI</small>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="メインメニュー">
+                <a href="#search">スポットを探す</a>
+                <a href="#route">ルートを作る</a>
+                <a href="#favorites">お気に入り</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- 最初に表示されるメイン画面 -->
+        <section class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    DISCOVER OKAYAMA
+                </p>
+
+                <h1>
+                    岡山、意外と<br>
+                    やることあるじゃん。
+                </h1>
+
+                <p class="hero-description">
+                    いつもの岡山に、まだ知らない楽しみを。<br>
+                    次の休日に行きたくなる場所を見つけよう。
+                </p>
+
+                <a href="#search" class="button button-primary hero-button">
+                    岡山のスポットを探す
+                    <span aria-hidden="true">→</span>
+                </a>
+
+                <div class="hero-note">
+                    <span class="hero-note-mark">●</span>
+                    定番から、まだ知らない場所まで
+                </div>
+
+            </div>
+
+            <div class="hero-bottom">
+                <span>FIND YOUR NEXT DESTINATION</span>
+                <span class="hero-bottom-line"></span>
+            </div>
+
+        </section>
+
+
+        <!-- サイトの目的を伝える部分 -->
+        <section class="intro section-container">
+
+            <div class="intro-heading">
+                <p class="section-label">OUR CONCEPT</p>
+
+                <h2>
+                    知っているつもりの岡山に、<br>
+                    <span class="text-green">新しい発見を。</span>
+                </h2>
+            </div>
+
+            <div class="intro-text">
+                <p>
+                    岡山といえば、後楽園や倉敷美観地区。
+                    もちろん魅力的な場所だけど、それだけじゃもったいない。
+                </p>
+
+                <p>
+                    おかやま旅ナビでは、地域や予算、使える時間から
+                    行きたい場所を探せるよ。
+                    まだ知らなかった岡山を見つけてみよう。
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- 検索できる条件をまとめた部分 -->
+        <section id="search" class="search-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">SPOT SEARCH</p>
+                        <h2>次はどこに行く？</h2>
+                        <p class="section-subtitle">
+                            今の気分や予定に合わせて、スポットを探してみよう。
+                        </p>
+                    </div>
+
+                    <span class="heading-number">01</span>
+                </div>
+
+
+                <!-- 検索フォーム -->
+                <form id="search-form" class="search-panel">
+
+                    <div class="search-panel-heading">
+                        <div>
+                            <span class="search-panel-icon">⌕</span>
+                            <h3>おでかけの条件</h3>
+                        </div>
+
+                        <p>条件を選んで検索できるよ</p>
+                    </div>
+
+
+                    <!-- キーワード検索 -->
+                    <div class="form-group form-keyword">
+                        <label for="keyword">キーワード</label>
+
+                        <input type="search" id="keyword" name="keyword" placeholder="例：自然、カフェ、歴史" autocomplete="off">
+                    </div>
+
+
+                    <div class="search-fields">
+
+                        <div class="form-group">
+                            <label for="area">行きたい地域</label>
+
+                            <select id="area" name="area">
+                                <option value="all">すべての地域</option>
+                                <option value="岡山市">岡山市</option>
+                                <option value="倉敷市">倉敷市</option>
+                                <option value="玉野市">玉野市</option>
+                                <option value="津山市">津山市</option>
+                                <option value="瀬戸内市">瀬戸内市</option>
+                                <option value="総社市">総社市</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="budget">予算の上限</label>
+
+                            <select id="budget" name="budget">
+                                <option value="all">指定しない</option>
+                                <option value="0">無料の場所</option>
+                                <option value="1000">1,000円以内</option>
+                                <option value="3000">3,000円以内</option>
+                                <option value="5000">5,000円以内</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="time">使える時間</label>
+
+                            <select id="time" name="time">
+                                <option value="all">指定しない</option>
+                                <option value="60">1時間以内</option>
+                                <option value="120">2時間以内</option>
+                                <option value="180">3時間以内</option>
+                                <option value="300">5時間以内</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="purpose">おでかけの目的</label>
+
+                            <select id="purpose" name="purpose">
+                                <option value="all">すべて</option>
+                                <option value="観光">観光・歴史</option>
+                                <option value="食べる">グルメ</option>
+                                <option value="自然">自然・景色</option>
+                                <option value="体験">体験・学び</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="category">スポットの種類</label>
+
+                            <select id="category" name="category">
+                                <option value="all">すべて</option>
+                                <option value="定番">定番スポット</option>
+                                <option value="穴場候補">穴場候補</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="sort">並び替え</label>
+
+                            <select id="sort" name="sort">
+                                <option value="recommended">おすすめ順</option>
+                                <option value="budget">料金が安い順</option>
+                                <option value="time">所要時間が短い順</option>
+                                <option value="name">名前順</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="search-actions">
+
+                        <button type="submit" class="button button-primary">
+                            この条件で探す
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                        <button type="button" id="reset-button" class="button button-secondary">
+                            条件をリセット
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <!-- 検索結果 -->
+                <div class="results-heading">
+
+                    <div>
+                        <p class="section-label">SEARCH RESULTS</p>
+                        <h3>見つかったスポット</h3>
+                    </div>
+
+                    <p id="result-message" aria-live="polite">
+                        スポットを読み込んでいます。
+                    </p>
+
+                </div>
+
+
+                <!-- JavaScriptでスポットカードを表示する -->
+                <div id="spot-list" class="spot-grid"></div>
+
+
+                <!-- 検索結果がなかった場合に表示する -->
+                <div id="empty-state" class="empty-state" hidden>
+
+                    <div class="empty-state-icon">⌕</div>
+
+                    <h3>条件に合うスポットが見つからなかったよ</h3>
+
+                    <p>
+                        地域や予算などの条件を少し変えて、もう一度探してみよう。
+                    </p>
+
+                    <button type="button" id="empty-reset-button" class="button button-primary">
+                        条件をリセットする
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- おすすめルートを作る部分 -->
+        <section id="route" class="route-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">MY TRAVEL PLAN</p>
+                        <h2>今日の寄り道プラン</h2>
+
+                        <p class="section-subtitle">
+                            気になる場所を組み合わせて、岡山を楽しもう。
+                        </p>
+                    </div>
+
+                    <span class="heading-number">02</span>
+                </div>
+
+
+                <div class="route-feature">
+
+                    <div class="route-feature-text">
+
+                        <span class="route-badge">PLAN YOUR DAY</span>
+
+                        <h3>
+                            いつもの休日を、<br>
+                            ちょっと特別に。
+                        </h3>
+
+                        <p>
+                            検索条件に合うスポットから、
+                            滞在時間と料金を考えたプランを作成するよ。
+                        </p>
+
+                        <p class="route-caution">
+                            ※表示される滞在時間と料金は目安だよ。
+                            移動時間や交通費は別途確認してね。
+                        </p>
+
+                        <button type="button" id="route-button" class="button button-light">
+                            おすすめプランを作る
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="route-feature-decoration" aria-hidden="true">
+
+                        <div class="route-circle route-circle-one"></div>
+                        <div class="route-circle route-circle-two"></div>
+
+                        <div class="route-map-card">
+                            <span class="route-map-pin">●</span>
+                            <span>YOUR OKAYAMA TRIP</span>
+                            <div class="route-map-line"></div>
+                            <span class="route-map-pin">●</span>
+                            <span>NEW DISCOVERY</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 作成したプランを表示する -->
+                <div id="route-result" class="route-result" aria-live="polite"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- お気に入りを表示する部分 -->
+        <section id="favorites" class="favorites-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="section-label">MY FAVORITES</p>
+                        <h2>気になる場所を保存しよう</h2>
+
+                        <p class="section-subtitle">
+                            また行きたい場所や、次に行ってみたい場所をまとめておけるよ。
+                        </p>
+                    </div>
+
+                    <span class="heading-number">03</span>
+
+                </div>
+
+
+                <div id="favorite-message" class="favorite-message" aria-live="polite"></div>
+
+
+                <!-- お気に入りのスポットを表示する -->
+                <div id="favorite-list" class="spot-grid"></div>
+
+
+                <!-- お気に入りがない場合に表示する -->
+                <div id="favorite-empty" class="favorite-empty">
+
+                    <div class="favorite-empty-icon">♡</div>
+
+                    <h3>お気に入りはまだないよ</h3>
+
+                    <p>
+                        気になるスポットのハートマークを押して保存してみよう。
+                    </p>
+
+                    <a href="#search" class="button button-primary">
+                        スポットを探す
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- サイトを使うときの注意事項 -->
+        <section class="notice-section">
+
+            <div class="section-container">
+
+                <div class="notice-box">
+
+                    <div class="notice-icon">i</div>
+
+                    <div>
+                        <h3>おでかけ前に確認しよう</h3>
+
+                        <p>
+                            掲載している料金・営業時間・アクセス情報などは、
+                            変更されている場合があるよ。
+                            実際に訪問する前に、施設の公式情報を確認してね。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ページ下部 -->
+    <footer class="site-footer">
+
+        <div class="section-container">
+
+            <div class="footer-main">
+
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-icon">岡</span>
+
+                    <span class="logo-text">
+                        <strong>おかやま旅ナビ</strong>
+                        <small>OKAYAMA TRAVEL NAVI</small>
+                    </span>
+                </a>
+
+                <p>
+                    岡山の知らなかった魅力を、もっと身近に。
+                </p>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    本サイトは卒業研究の制作物です。
+                </p>
+
+                <p>
+                    &copy; 2026 おかやま旅ナビ
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- スポットの詳しい情報を表示するダイアログ -->
+    <dialog id="spot-dialog" class="spot-dialog">
+
+        <div class="dialog-header">
+
+            <p class="section-label">SPOT INFORMATION</p>
+
+            <button type="button" id="dialog-close" class="dialog-close" aria-label="詳細画面を閉じる">
+                ×
+            </button>
+
+        </div>
+
+        <div id="dialog-content" class="dialog-content"></div>
+
+    </dialog>
+
+</body>
+
+</html>
